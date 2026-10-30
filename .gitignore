@@ -1,0 +1,10 @@
+# large or re-creatable files (made by the scripts)
+data/raw/
+data/step1/
+data/step2/
+data/storms/
+results/
+__pycache__/
+*.pyc
+.venv/
+catboost_info/
