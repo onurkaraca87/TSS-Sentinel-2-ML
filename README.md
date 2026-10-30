@@ -2,7 +2,7 @@
 
 Code and data for the paper
 
-**National-Scale Total Suspended Solids Retrieval from Sentinel-2: Machine Learning and Spatial Validation Across U.S.**
+**Machine Learning and Spatial Validation for Sentinel-2 Total Suspended Solids Retrieval across the United States**
 Onur Karaca, Shuhab Khan, Gultekin Erten (University of Houston)
 
 Field TSS from the Water Quality Portal (WQP) is matched with Sentinel-2 L2A images taken within one day
