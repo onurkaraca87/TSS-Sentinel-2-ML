@@ -15,6 +15,7 @@ Lake Okeechobee (Hurricane Ian, 2022) and the Houston Ship Channel (Tropical Sto
 ```
 data/final_TSS.parquet          final matchup dataset: 69,287 matchups at 12,217 sites (one row per matchup)
 models/CatBoost_kNNDM_*.pkl     final CatBoost models (Combined, Lake, River, Estuary), kNNDM scheme
+figures/                        Figures 3 and 5-8 of the paper (shown below)
 code/
   step1_clean_wqp.py            WQP records -> 860,334 quality-controlled TSS records
   step2_matchup_gee.py          Sentinel-2 images of every record (Google Earth Engine, +-1 day, 4 x 4 pixels)
@@ -82,6 +83,34 @@ tss = tss_model.predict_tss(bundle, cells)      # mg/L per 40 m cell, NaN outsid
 `bands` are the ten L2A bands (B2-B8A, B11, B12) as reflectance (0-1) on the 10 m grid, `scl` the Sen2Cor
 scene classification and `cloud_score` the Cloud Score+ `cs_cdf` band on the same grid. See
 `step7_storm_maps.py` for a full example.
+
+## Figures
+
+Figures 3 and 5-8 of the paper.
+
+**Figure 3.** Sentinel-2 matchup: band resolution, 4 x 4 pixel window, pixel screening, records left after
+each step and the 12,217 sites of the final dataset.
+
+![Figure 3](figures/Figure3_matchup.jpg)
+
+**Figure 5.** Observed versus predicted TSS of CatBoost on the test data for the four validation schemes
+(rows) and the Combined, Lake, River and Estuary models (columns).
+
+![Figure 5](figures/Figure5_observed_vs_predicted.png)
+
+**Figure 6.** SHAP values of the ten most important features of the CatBoost models (kNNDM scheme).
+
+![Figure 6](figures/Figure6_SHAP_CatBoost.png)
+
+**Figure 7.** Sentinel-2 TSS maps of Lake Okeechobee for the 16 images between 31 August and 27 October 2022
+(Hurricane Ian landfall: 28 September 2022; CatBoost, kNNDM, Lake model; 40 m cells).
+
+![Figure 7](figures/Figure7_Okeechobee_TSS_maps.jpg)
+
+**Figure 8.** Lake Okeechobee before and after Hurricane Ian: lake-wide median TSS with field samples (A),
+TSS distribution before and after landfall (B) and maps compared with field samples (C).
+
+![Figure 8](figures/Figure8_Okeechobee_time_series.jpg)
 
 ## License
 
